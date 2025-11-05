@@ -42,12 +42,12 @@ Target Variable: Binary outcome (0 = No Diabetes, 1 = Diabetes)
 ### 2. Hard Margin SVM Classifier (ques1_SVM.ipynb)
 #### Implements a linear SVM with hard margin (high C value = 10,000) with three different train-test split ratios:
 
--Test Size 0.2 (80% train, 20% test)
-  -Accuracy: 29.22%
--Test Size 0.3 (70% train, 30% test)
-  -Accuracy: 35.06%
--Test Size 0.4 (60% train, 40% test)
-  -Accuracy: 57.47%
+- Test Size 0.2 (80% train, 20% test)
+  - Accuracy: 29.22%
+- Test Size 0.3 (70% train, 30% test)
+  - Accuracy: 35.06%
+- Test Size 0.4 (60% train, 40% test)
+  - Accuracy: 57.47%
 
 #### Key Features:
 - Linear kernel SVM
@@ -74,11 +74,11 @@ Target Variable: Binary outcome (0 = No Diabetes, 1 = Diabetes)
 #### Implements Gaussian Naive Bayes classifier with three different train-test split ratios:
 
 - Test Size 0.2 (80% train, 20% test)
-  - Accuracy: To be added
+  - Accuracy: 75.97%
 - Test Size 0.3 (70% train, 30% test)
-  - Accuracy: To be added
+  - Accuracy: 72.72%
 - Test Size 0.4 (60% train, 40% test)
-  - Accuracy: To be added
+  - Accuracy: 73.37%
 
 #### Key Features:
 - Probabilistic classifier based on Bayes' theorem
@@ -93,22 +93,22 @@ Target Variable: Binary outcome (0 = No Diabetes, 1 = Diabetes)
 |Decision Tree   | 66.88% | 69.70% | 70.78% | 70.78% |
 |SVM (Hard Margin)   | 29.22% | 35.06% | 57.47% | 57.47% |
 |KNN (k=5)| 69.48% | 73.59% | 69.81% | 73.59% |
-|Naive Bayes|
+|Naive Bayes| 75.97% | 72.72% | 73.37% | 75.97%|
 
 
-Current Winner: K-Nearest Neighbors with 73.59% accuracy at test size 0.3
-🛠️ Requirements
-python- Python 3.x
+Current Winner: Naive Bayes Classifier with 75.97% accuracy at test size 0.2
+## 🛠️ Requirements
+- python- Python 3.x
 - pandas
 - numpy
 - scikit-learn
 - matplotlib
-💻 Installation
-bashpip install pandas numpy scikit-learn matplotlib
-🚀 Usage
-python# Example for any classifier
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier  # or KNeighborsClassifier, GaussianNB, SVC
+## 💻 Installation
+- bashpip install pandas numpy scikit-learn matplotlib
+## 🚀 Usage
+- python# Example for any classifier
+- from sklearn.model_selection import train_test_split
+- from sklearn.tree import DecisionTreeClassifier  # or KNeighborsClassifier, GaussianNB, SVC
 
 # Load data
 data = pd.read_csv('Diabetes.csv')
