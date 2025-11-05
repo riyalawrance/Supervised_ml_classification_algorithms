@@ -87,7 +87,15 @@ Target Variable: Binary outcome (0 = No Diabetes, 1 = Diabetes)
 - Works well with small datasets
 
 ## 📈 Performance Comparison
-AlgorithmTest Size 0.2Test Size 0.3Test Size 0.4Best AccuracyDecision Tree66.88%69.70%70.78%70.78%SVM (Hard Margin)29.22%35.06%57.47%57.47%KNN (k=5)69.48%73.59%69.81%73.59%Naive BayesTBATBATBATBA
+
+| Algorithm | Test Size 0.2 | Test Size 0.3|Test Size 0.4|Best Accuracy|
+|----------|----------|----------|----------|----------|
+|Decision Tree   | 66.88% | 69.70% | 70.78% | 70.78% |
+|SVM (Hard Margin)   | 29.22% | 35.06% | 57.47% | 57.47% |
+|KNN (k=5)| 69.48% | 73.59% | 69.81% | 73.59% |
+|Naive Bayes|
+
+
 Current Winner: K-Nearest Neighbors with 73.59% accuracy at test size 0.3
 🛠️ Requirements
 python- Python 3.x
@@ -114,77 +122,46 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 clf = DecisionTreeClassifier()  # or other classifier
 clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
-📝 Key Observations
-Strengths and Weaknesses:
-Decision Tree:
+## 📝 Key Observations
+### Strengths and Weaknesses:
+#### Decision Tree:
 
-✅ Easy to interpret and visualize
-✅ Handles non-linear relationships
-❌ Prone to overfitting
-❌ Sensitive to small data variations
+- ✅ Easy to interpret and visualize
+- ✅ Handles non-linear relationships
+- ❌ Prone to overfitting
+- ❌ Sensitive to small data variations
 
-SVM:
+#### SVM:
 
-✅ Effective in high-dimensional spaces
-✅ Memory efficient
-❌ Poor performance without proper scaling
-❌ Requires careful hyperparameter tuning
+- ✅ Effective in high-dimensional spaces
+- ✅ Memory efficient
+- ❌ Poor performance without proper scaling
+- ❌ Requires careful hyperparameter tuning
 
-KNN:
+#### KNN:
 
-✅ Simple and intuitive
-✅ No training phase
-✅ Best performance in this comparison
-❌ Computationally expensive for large datasets
-❌ Sensitive to irrelevant features
+- ✅ Simple and intuitive
+- ✅ No training phase
+- ✅ Best performance in this comparison
+- ❌ Computationally expensive for large datasets
+- ❌ Sensitive to irrelevant features
 
-Naive Bayes:
+#### Naive Bayes:
 
-✅ Fast and efficient
-✅ Works well with small datasets
-✅ Performs well with independent features
-❌ Assumes feature independence (often unrealistic)
+- ✅ Fast and efficient
+- ✅ Works well with small datasets
+- ✅ Performs well with independent features
+- ❌ Assumes feature independence (often unrealistic)
 
-🎯 Future Improvements
-
-Feature Engineering:
-
-Feature scaling (StandardScaler/MinMaxScaler)
-Feature selection
-Handle missing values and outliers
-
-
-Model Optimization:
-
-Hyperparameter tuning using GridSearchCV/RandomizedSearchCV
-Cross-validation for robust performance estimation
-Try ensemble methods (Random Forest, Gradient Boosting)
-
-
-SVM Improvements:
-
-Implement feature scaling
-Try different kernels (RBF, polynomial)
-Adjust C and gamma parameters
-
-
-Advanced Techniques:
-
-Ensemble methods (Voting, Bagging, Boosting)
-Neural Networks
-Feature importance analysis
-
-
-
-📊 Evaluation Metrics
+## 📊 Evaluation Metrics
 Each implementation includes:
 
-Accuracy Score: Overall correctness
-Confusion Matrix: True/False Positives/Negatives
-Classification Report: Precision, Recall, F1-Score for each class
-Visual Confusion Matrix: Heatmap representation
+- Accuracy Score: Overall correctness
+- Confusion Matrix: True/False Positives/Negatives
+- Classification Report: Precision, Recall, F1-Score for each class
+- Visual Confusion Matrix: Heatmap representation
 
-👥 Contributing
+## 👥 Contributing
 Feel free to fork this repository and submit pull requests for improvements.
 📄 License
 This project is open source and available for educational purposes.
