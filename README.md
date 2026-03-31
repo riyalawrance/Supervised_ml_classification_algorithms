@@ -1,167 +1,136 @@
-# Diabetes Prediction using Machine Learning
-This repository contains machine learning implementations for predicting diabetes using the Pima Indians Diabetes dataset. The project compares four classification approaches: Decision Trees, Support Vector Machines (SVM), K-Nearest Neighbors (KNN), and Naive Bayes.
-## 📁 Files in Repository
+# 🩺 Diabetes Prediction using Supervised ML Algorithms
 
-- Diabetes.csv - The Pima Indians Diabetes dataset
-- DT.ipynb - Decision Tree classifier implementation
-- SVM.ipynb - SVM classifier implementation
-- KNN.ipynb - K-Nearest Neighbors classifier implementation
-- NB.ipynb - Naive Bayes classifier implementation
-- README.md - This file
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+
+> Comparing four supervised classification algorithms to predict diabetes onset using the Pima Indians Diabetes Dataset. Best accuracy achieved: **75.97% with Naive Bayes**.
+
+---
+
+## 🎯 Project Overview
+
+This project explores and compares four classic supervised machine learning classification algorithms applied to a real-world medical dataset. The goal is to predict whether a patient has diabetes based on diagnostic measurements, while understanding the strengths and trade-offs of each algorithm.
+
+**Algorithms Compared:**
+- Decision Tree
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
+- Naive Bayes
+
+---
 
 ## 📊 Dataset
-The dataset contains medical diagnostic measurements for Pima Indian women, with features including:
 
-- Number of pregnancies
-- Glucose level
-- Blood pressure
-- Skin thickness
-- Insulin level
-- BMI (Body Mass Index)
-- Diabetes pedigree function
-- Age
+**Pima Indians Diabetes Dataset** — a well-known benchmark dataset in medical ML research.
 
-Target Variable: Binary outcome (0 = No Diabetes, 1 = Diabetes)
-## 🔍 Implementations
-### 1. Decision Tree Classifier (ques1_DT.ipynb)
-#### Implements a Decision Tree classifier with three different train-test split ratios:
+| Feature | Description |
+|---|---|
+| Pregnancies | Number of times pregnant |
+| Glucose | Plasma glucose concentration |
+| BloodPressure | Diastolic blood pressure (mm Hg) |
+| SkinThickness | Triceps skin fold thickness (mm) |
+| Insulin | 2-Hour serum insulin (mu U/ml) |
+| BMI | Body mass index |
+| DiabetesPedigreeFunction | Diabetes likelihood based on family history |
+| Age | Age in years |
+| **Outcome** | **Target: 0 = No Diabetes, 1 = Diabetes** |
 
-- Test Size 0.2 (80% train, 20% test)
-    - Accuracy: 66.88%
-- Test Size 0.3 (70% train, 30% test)
-    - Accuracy: 69.70%
-- Test Size 0.4 (60% train, 40% test)
-    - Accuracy: 70.78%
+---
 
- #### Key Features:
+## 📈 Results Summary
 
-- Non-parametric algorithm
-- Handles both numerical and categorical data
-- Prone to overfitting without pruning
+Each algorithm was tested across three train-test splits (80/20, 70/30, 60/40):
 
-### 2. Hard Margin SVM Classifier (ques1_SVM.ipynb)
-#### Implements a linear SVM with hard margin (high C value = 10,000) with three different train-test split ratios:
+| Algorithm | Test 0.2 | Test 0.3 | Test 0.4 | Best Accuracy |
+|---|---|---|---|---|
+| Decision Tree | 66.88% | 69.70% | 70.78% | 70.78% |
+| SVM (Hard Margin) | 29.22% | 35.06% | 57.47% | 57.47% |
+| KNN (k=5) | 69.48% | 73.59% | 69.81% | 73.59% |
+| **Naive Bayes** | **75.97%** | 72.72% | 73.37% | **75.97% ✅** |
 
-- Test Size 0.2 (80% train, 20% test)
-  - Accuracy: 29.22%
-- Test Size 0.3 (70% train, 30% test)
-  - Accuracy: 35.06%
-- Test Size 0.4 (60% train, 40% test)
-  - Accuracy: 57.47%
+**🏆 Winner: Naive Bayes** with 75.97% accuracy at 80/20 split.
 
-#### Key Features:
-- Linear kernel SVM
-- Hard margin approach (C=10,000, max_iter=100,000)
-- Convergence warnings indicating need for feature scaling
+> **Note:** SVM's poor performance is attributed to the absence of feature scaling — a known requirement for SVM to converge effectively.
 
-### 3. K-Nearest Neighbors Classifier (ques1_KNN.ipynb)
-#### Implements KNN algorithm with k=5 neighbors across three different train-test split ratios:
+---
 
-- Test Size 0.2 (80% train, 20% test)
-  - Accuracy: 69.48%
-- Test Size 0.3 (70% train, 30% test)
-  - Accuracy: 73.59%
-- Test Size 0.4 (60% train, 40% test)
-  - Accuracy: 69.81%
+## 🔍 Key Observations
 
-#### Key Features:
-- Instance-based learning
-- K=5 neighbors configuration
-- No explicit training phase
-- Sensitive to feature scaling
+- **Naive Bayes** performed best overall despite its independence assumption, likely due to the small dataset size
+- **SVM** underperformed significantly without feature normalization — a great learning point about preprocessing
+- **KNN** showed competitive performance, peaking at 73.59% with a 70/30 split
+- **Decision Tree** accuracy improved as test size increased, suggesting mild overfitting with smaller test sets
 
-### 4. Naive Bayes Classifier (ques1_NB.ipynb)
-#### Implements Gaussian Naive Bayes classifier with three different train-test split ratios:
+---
 
-- Test Size 0.2 (80% train, 20% test)
-  - Accuracy: 75.97%
-- Test Size 0.3 (70% train, 30% test)
-  - Accuracy: 72.72%
-- Test Size 0.4 (60% train, 40% test)
-  - Accuracy: 73.37%
+## 🛠️ Tech Stack
 
-#### Key Features:
-- Probabilistic classifier based on Bayes' theorem
-- Assumes feature independence
-- Fast training and prediction
-- Works well with small datasets
-
-## 📈 Performance Comparison
-
-| Algorithm | Test Size 0.2 | Test Size 0.3|Test Size 0.4|Best Accuracy|
-|----------|----------|----------|----------|----------|
-|Decision Tree   | 66.88% | 69.70% | 70.78% | 70.78% |
-|SVM (Hard Margin)   | 29.22% | 35.06% | 57.47% | 57.47% |
-|KNN (k=5)| 69.48% | 73.59% | 69.81% | 73.59% |
-|Naive Bayes| 75.97% | 72.72% | 73.37% | 75.97%|
-
-
-Current Winner: Naive Bayes Classifier with 75.97% accuracy at test size 0.2
-## 🛠️ Requirements
-- python- Python 3.x
-- pandas
-- numpy
+- Python 3.x
+- Jupyter Notebook
+- pandas, numpy
 - scikit-learn
-- matplotlib
-## 💻 Installation
-- bashpip install pandas numpy scikit-learn matplotlib
-## 🚀 Usage
-- python# Example for any classifier
-- from sklearn.model_selection import train_test_split
-- from sklearn.tree import DecisionTreeClassifier  # or KNeighborsClassifier, GaussianNB, SVC
+- matplotlib, seaborn
 
-# Load data
-data = pd.read_csv('Diabetes.csv')
-X = data.iloc[:, :-1]
-y = data.iloc[:, -1]
+---
 
-# Split data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+## 🚀 How to Run
 
-# Train and predict
-clf = DecisionTreeClassifier()  # or other classifier
-clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test)
-## 📝 Key Observations
-### Strengths and Weaknesses:
-#### Decision Tree:
+```bash
+# 1. Clone the repository
+git clone https://github.com/riyalawrance/Supervised_ml_classification_algorithms.git
+cd Supervised_ml_classification_algorithms
 
-- ✅ Easy to interpret and visualize
-- ✅ Handles non-linear relationships
-- ❌ Prone to overfitting
-- ❌ Sensitive to small data variations
+# 2. Install dependencies
+pip install pandas numpy scikit-learn matplotlib seaborn
 
-#### SVM:
+# 3. Open any notebook
+jupyter notebook ques1_DT.ipynb
+```
 
-- ✅ Effective in high-dimensional spaces
-- ✅ Memory efficient
-- ❌ Poor performance without proper scaling
-- ❌ Requires careful hyperparameter tuning
+---
 
-#### KNN:
+## 📁 Repository Structure
 
-- ✅ Simple and intuitive
-- ✅ No training phase
-- ✅ Best performance in this comparison
-- ❌ Computationally expensive for large datasets
-- ❌ Sensitive to irrelevant features
+```
+📦 Supervised_ml_classification_algorithms
+ ┣ 📓 ques1_DT.ipynb       # Decision Tree implementation
+ ┣ 📓 ques1_KNN.ipynb      # K-Nearest Neighbors implementation
+ ┣ 📓 ques1_NBC.ipynb      # Naive Bayes implementation
+ ┣ 📓 ques1_SVM.ipynb      # Support Vector Machine implementation
+ ┣ 📄 Diabetes.csv         # Dataset
+ ┗ 📄 README.md            # This file
+```
 
-#### Naive Bayes:
+---
 
-- ✅ Fast and efficient
-- ✅ Works well with small datasets
-- ✅ Performs well with independent features
-- ❌ Assumes feature independence (often unrealistic)
+## 📝 Evaluation Metrics Used
 
-## 📊 Evaluation Metrics
-Each implementation includes:
+Each notebook includes:
+- ✅ Accuracy Score
+- ✅ Confusion Matrix (with heatmap)
+- ✅ Classification Report (Precision, Recall, F1-Score)
 
-- Accuracy Score: Overall correctness
-- Confusion Matrix: True/False Positives/Negatives
-- Classification Report: Precision, Recall, F1-Score for each class
-- Visual Confusion Matrix: Heatmap representation
+---
 
-## 👥 Contributing
-Feel free to fork this repository and submit pull requests for improvements.
-📄 License
-This project is open source and available for educational purposes.
+## 🌱 Future Improvements
+
+- [ ] Add feature scaling/normalization (especially for SVM and KNN)
+- [ ] Hyperparameter tuning using GridSearchCV
+- [ ] Add cross-validation for more robust evaluation
+- [ ] Try ensemble methods (Random Forest, XGBoost)
+- [ ] Deploy best model as a web app using Streamlit
+
+---
+
+## 👩‍💻 Author
+
+**Riya Lawrance**  
+CS Engineering Student | ML & Data Science Enthusiast  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/riya-lawrance-66993b2a8/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/riyalawrance)
+
+---
+
+⭐ If you found this useful, consider giving the repo a star!
